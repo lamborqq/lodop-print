@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./modules/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./modules/bootstrap/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="awesome/css/font-awesome-ie7.css">
+    <link rel="stylesheet" href="modules/select2-4.0.5/css/select2.min.css">
+</head>
+<script src="http://localhost:18000/CLodopfuncs.js?priority=0"></script>
+<script src="http://localhost:8000/CLodopfuncs.js?priority=1"></script>
+<body>
+<div>
+    <table>
+        <tr><td><a href="#" class="btn btn-info" id="pp" lamp="lampPrinter" data-tplno="tpl_0000000039" data-operated="preview">打印</a></td>
+            <td><a href="#" class="btn btn-info" id="mpp">批量打印</a></td><td><a href="#" class="btn btn-info" id="pps" >打印预览</a></td></tr>
+    </table>
+</div>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./modules/bootstrap/js/bootstrap.js?v=3.3.7"></script>
+<script src="modules/select2-4.0.5/js/select2.full.min.js"></script>
+<script src="modules/select2-4.0.5/js/i18n/zh-CN.js"></script>
+<script src="./modules/jquery-barcode.js"></script>
+<script src="modules/lamp/js/lamp.print.js"></script>
+
+<script>
+    var data = {
+        "listGoods": [
+            {
+                "barcode": "21369020507",
+                "goodsCode": "21369",
+                "goodsName": "性感美背上衣",
+                "goodsType": 1,
+                "goodsTypeDesc": "普通商品",
+                "purchaseAmount": 10,
+                "skuCode": "21369102220",
+                "specDesc": "天蓝L通用",
+                "subtotal": 6000,
+                "wbSpec": "0.0000(0.0000)"
+            }
+        ],
+        "orderNo": "90181113032584",
+        "orderRemark": " fffx",
+        "orderTime": "2018-03-13 10:18:40",
+        "paymentStatus": 1,
+        "paymentStatusDesc": "已支付",
+        "pickingTime": "2018-03-20 14:07:24",
+        "recAddrFull": "天津市 市辖区 河东区大直沽街道弹丸之地",
+        "recMobile": "13222222222",
+        "recName": "张申",
+        "shopName": "官网商城虚拟店",
+        "totalMoney": 6000,
+        "transNo": "zr_user_test_001",
+        "vipName": "张冉",
+        "whName": "成品大仓"
+    };
+    var datas =[{
+       "tplNo":'tpl_0000000039' ,
+        'data':data
+    },{
+        "tplNo":'tpl_0000000039' ,
+        'data':data
+    }];
+
+    var tpls = [{
+        "tplName": "吞吞吐吐",
+        "tplNo": "tpl_0000000039",
+        "categoryCode": "com.xdoao.oceanus.print.client.invoice.model.InvoiceBaseVO",
+        "categoryName": "发货单模版",
+        "lampItems": [
+            {
+                "name": "div01",
+                "id": 0,
+                "type": "html",
+                "width": 789.4335788671577,
+                "height": 20,
+                "left": 0,
+                "itemtype": 1,
+                "html": "<div name=\"div01\" lamp=\"lodop\" data-lodop=\"html\" data-itemtype=\"1\">\n    <div class=\"row\">\n        <div class=\"col-xs-12\" style=\"width:99%;float:right;right: 40px;padding-right: 40px;text-align: right\">第<span tdata=\"PageNO\">##</span>页，共<span tdata=\"PageCount\">##</span>页</div>\n    </div>\n</div>"
+            },
+            {
+                "name": "div06",
+                "id": 1,
+                "type": "html",
+                "width": 789.4335788671577,
+                "height": 20,
+                "left": 0,
+                "itemtype": 1,
+                "html": "<div lamp=\"lodop\" data-lodop=\"html\" name=\"div06\" data-itemtype=\"1\">\n    <table width=\"99%\"><tbody><tr><td role=\"item\" style=\"height: 20px;\" name=\"item30\"><span data-type=\"text\" data-alias=\"\"></span></td></tr></tbody></table>\n</div>"
+            },
+            {
+                "name": "div01",
+                "id": 2,
+                "type": "html",
+                "width": 789.4335788671577,
+                "height": 114,
+                "left": 0,
+                "itemtype": 1,
+                "html": "<div name=\"div01\" lamp=\"lodop\" data-lodop=\"html\" data-itemtype=\"1\">\n    <div role=\"item\" class=\"tplBarcode\" style=\"z-index:99;position: absolute;right: 10px;text-align: center;padding-right: 20px;padding-top: 4px;min-width:30px;min-height: 20px;\" name=\"item2\" data-type=\"barcode\" data-alias=\"单据编号\" data-code=\"orderNo\"><div style=\"padding: 0px; overflow: auto; width: 174px;\"><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 20px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 2px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 4px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 4px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 4px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 6px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 4px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 2px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 4px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 4px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 4px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 6px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 4px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 2px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 2px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 2px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 2px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 4px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 4px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 4px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 2px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 8px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 2px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 4px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 4px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 4px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 2px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 4px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 2px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 4px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 4px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 2px\"></div><div style=\"float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 26px;\"></div><div style=\"float: left; font-size: 0px; background-color: #FFFFFF; height: 26px; width: 20px\"></div><span data-type=\"barcode\" data-alias=\"单据编号\" data-barcode=\"ean8\">@{orderNo}</span></div></div><table name=\"tplTop\" width=\"99%\">\n        <caption role=\"item\" class=\"tplCaption\" name=\"item1\" style=\"vertical-align: center\"><span data-type=\"text\" data-alias=\"发货单\">发货单</span></caption>\n        \n        <tbody>\n        <tr>\n            <td role=\"item\" style=\"text-align: right\" name=\"item3\" width=\"15%\"><span data-type=\"text\" data-alias=\"单据编号:\">单据编号:</span></td><td role=\"item\" style=\"text-align: left\" name=\"item4\" width=\"20%\"><span data-type=\"text\" data-alias=\"单据编号\">@{orderNo}</span></td>\n            <td role=\"item\" style=\"text-align: right\" name=\"item5\" width=\"15%\"><span data-type=\"text\" data-alias=\"发货仓库:\">发货仓库:</span></td><td role=\"item\" style=\"text-align: left\" name=\"item6\" width=\"20%\"><span data-type=\"text\" data-alias=\"发货仓库\">@{whName}</span></td>\n            <td role=\"item\" style=\"text-align: right\" name=\"item7\" width=\"15%\"><span data-type=\"text\" data-alias=\"买家昵称:\">买家昵称:</span></td><td role=\"item\" style=\"text-align: left\" name=\"item8\" width=\"20%\"><span data-type=\"text\" data-alias=\"买家昵称\">@{vipName}</span></td>\n        </tr>\n        <tr>\n            <td role=\"item\" style=\"text-align: right\" name=\"item9\"><span data-type=\"text\" data-alias=\"快递公司:\">快递公司:</span></td><td role=\"item\" style=\"text-align: left\" name=\"item10\"><span data-type=\"text\" data-alias=\"快递公司\">@{expressName}</span></td>\n            <td role=\"item\" style=\"text-align: right\" name=\"item11\"><span data-type=\"text\" data-alias=\"\"></span></td><td role=\"item\" style=\"text-align: left\" name=\"item12\"><span data-type=\"text\" data-alias=\"\"></span></td>\n            <td role=\"item\" style=\"text-align: right\" name=\"item13\"><span data-type=\"text\" data-alias=\"\"></span></td><td role=\"item\" style=\"text-align: left\" name=\"item14\"><span data-type=\"text\" data-alias=\"\"></span></td>\n        </tr>\n        <tr>\n            <td role=\"item\" style=\"text-align: right\" name=\"item15\"><span data-type=\"text\" data-alias=\"买家地址:\">买家地址:</span></td><td role=\"item\" style=\"text-align: left\" colspan=\"5\" name=\"item16\"><span data-type=\"text\" data-alias=\"收货地址\">@{recAddrFull}</span></td>\n        </tr>\n        </tbody>\n    </table>\n</div>"
+            },
+            {
+                "name": "div02",
+                "id": 3,
+                "type": "html",
+                "width": 789.4335788671577,
+                "height": 20,
+                "left": 0,
+                "itemtype": 1,
+                "html": "<div lamp=\"lodop\" data-lodop=\"html\" name=\"div02\" data-itemtype=\"1\">\n    <table width=\"99%\"><tbody><tr><td role=\"item\" style=\"height: 20px;\" name=\"item17\"><span data-type=\"text\" data-alias=\"\"></span></td></tr></tbody></table>\n</div>"
+            },
+            {
+                "name": "div03",
+                "id": 4,
+                "type": "table",
+                "width": 789.4335788671577,
+                "height": 85,
+                "left": 0,
+                "tableItem": {
+                    "name": "item18",
+                    "content": "@{listGoods}",
+                    "alias": "商品信息",
+                    "type": "table",
+                    "css": {
+                        "border": "1px solid rgb(140, 140, 140)",
+                        "border-collapse": "collapse",
+                        "border-spacing": "0px",
+                        "margin": "0px"
+                    },
+                    "code": "listGoods",
+                    "dataType": "list",
+                    "colModel": [
+                        {
+                            "index": "goodsName",
+                            "name": "goodsName",
+                            "label": "商品名称",
+                            "sortno": 0,
+                            "defVal": "-",
+                            "thCss": {
+                                "text-align": "center",
+                                "font-weight": "bold",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "tdCss": {
+                                "text-align": "center",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "hidden": false,
+                            "width": ""
+                        },
+                        {
+                            "index": "goodsCode",
+                            "name": "goodsCode",
+                            "label": "商品编码",
+                            "sortno": 1,
+                            "defVal": "-",
+                            "thCss": {
+                                "text-align": "center",
+                                "font-weight": "bold",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "tdCss": {
+                                "text-align": "center",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "hidden": true,
+                            "width": ""
+                        },
+                        {
+                            "index": "skuCode",
+                            "name": "skuCode",
+                            "label": "商品规格编码",
+                            "sortno": 2,
+                            "defVal": "-",
+                            "thCss": {
+                                "text-align": "center",
+                                "font-weight": "bold",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "tdCss": {
+                                "text-align": "center",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "hidden": false,
+                            "width": ""
+                        },
+                        {
+                            "index": "barcode",
+                            "name": "barcode",
+                            "label": "商品条码",
+                            "sortno": 3,
+                            "defVal": "-",
+                            "thCss": {
+                                "text-align": "center",
+                                "font-weight": "bold",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "tdCss": {
+                                "text-align": "center",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "hidden": false,
+                            "width": ""
+                        },
+                        {
+                            "index": "channelSpec",
+                            "name": "channelSpec",
+                            "label": "平台规格",
+                            "sortno": 4,
+                            "defVal": "-",
+                            "thCss": {
+                                "text-align": "center",
+                                "font-weight": "bold",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "tdCss": {
+                                "text-align": "center",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "hidden": true,
+                            "width": ""
+                        },
+                        {
+                            "index": "specDesc",
+                            "name": "specDesc",
+                            "label": "商品规格",
+                            "sortno": 5,
+                            "defVal": "-",
+                            "thCss": {
+                                "text-align": "center",
+                                "font-weight": "bold",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "tdCss": {
+                                "text-align": "center",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "hidden": false,
+                            "width": ""
+                        },
+                        {
+                            "index": "purchaseAmount",
+                            "name": "purchaseAmount",
+                            "label": "数量",
+                            "sortno": 6,
+                            "defVal": "-",
+                            "thCss": {
+                                "text-align": "center",
+                                "font-weight": "bold",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "tdCss": {
+                                "text-align": "center",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "hidden": false,
+                            "width": ""
+                        },
+                        {
+                            "index": "subtotal",
+                            "name": "subtotal",
+                            "label": "金额",
+                            "sortno": 7,
+                            "defVal": "-",
+                            "thCss": {
+                                "text-align": "center",
+                                "font-weight": "bold",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "tdCss": {
+                                "text-align": "center",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "hidden": false,
+                            "width": ""
+                        },
+                        {
+                            "index": "wbSpec",
+                            "name": "wbSpec",
+                            "label": "库存描述",
+                            "sortno": 8,
+                            "defVal": "-",
+                            "thCss": {
+                                "text-align": "center",
+                                "font-weight": "bold",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "tdCss": {
+                                "text-align": "center",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "hidden": true,
+                            "width": ""
+                        },
+                        {
+                            "index": "goodsType",
+                            "name": "goodsType",
+                            "label": "商品类型Code",
+                            "sortno": 9,
+                            "defVal": "-",
+                            "thCss": {
+                                "text-align": "center",
+                                "font-weight": "bold",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "tdCss": {
+                                "text-align": "center",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "hidden": true,
+                            "width": ""
+                        },
+                        {
+                            "index": "goodsTypeDesc",
+                            "name": "goodsTypeDesc",
+                            "label": "商品类型",
+                            "sortno": 10,
+                            "defVal": "-",
+                            "thCss": {
+                                "text-align": "center",
+                                "font-weight": "bold",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "tdCss": {
+                                "text-align": "center",
+                                "border": "1px solid #8c8c8c"
+                            },
+                            "hidden": true,
+                            "width": ""
+                        }
+                    ]
+                },
+                "html": ""
+            },
+            {
+                "name": "div04",
+                "id": 5,
+                "type": "html",
+                "width": 789.4335788671577,
+                "height": 20,
+                "left": 0,
+                "itemtype": 1,
+                "html": "<div lamp=\"lodop\" data-lodop=\"html\" name=\"div04\" data-itemtype=\"1\">\n    <table width=\"99%\"><tbody><tr><td role=\"item\" style=\"height: 20px;\" name=\"item19\"><span data-type=\"text\" data-alias=\"\"></span></td></tr></tbody></table>\n</div>"
+            },
+            {
+                "name": "div05",
+                "id": 6,
+                "type": "html",
+                "width": 789.4335788671577,
+                "height": 40,
+                "left": 0,
+                "itemtype": 1,
+                "html": "<div id=\"tplBottomContainer\" lamp=\"lodop\" data-lodop=\"html\" name=\"div05\" data-itemtype=\"1\">\n    <table name=\"tt\" width=\"99%\" min-height=\"50px\">\n        <thead>\n        <tr><th></th><th></th><th></th><th></th><th></th><th></th></tr>\n        </thead>\n        <tbody>\n        <tr>\n            <td role=\"item\" style=\"text-align: right;\" name=\"item20\" width=\"15%\"><span data-type=\"text\" data-alias=\"店铺：\">店铺：</span></td>\n            <td role=\"item\" style=\"text-align: left;\" name=\"item21\" colspan=\"3\" width=\"35%\"><span data-type=\"text\" data-alias=\"店铺\">@{shopName}</span></td>\n            <td role=\"item\" style=\"text-align: right;\" name=\"item22\" width=\"15%\"><span data-type=\"text\" data-alias=\"快递费：\">快递费：</span></td>\n            <td role=\"item\" name=\"item23\" width=\"35%\"><span data-type=\"text\" data-alias=\"快递费\">@{exprFee}</span></td></tr>\n        <tr min-height=\"24px\">\n            <td role=\"item\" style=\"text-align: right;\" name=\"item24\"><span data-type=\"text\" data-alias=\"商家备注：\">商家备注：</span></td>\n            <td role=\"item\" style=\"text-align: left;\" name=\"item25\" colspan=\"3\"><span data-type=\"text\" data-alias=\"卖家留言\">@{sellerMessage}</span></td>\n            <td role=\"item\" style=\"text-align: right;\" name=\"item26\"><span data-type=\"text\" data-alias=\"合计：\">合计：</span></td>\n            <td role=\"item\" style=\"text-align: left;\" name=\"item27\"><span data-type=\"text\" data-alias=\"合计\">@{totalMoney}</span></td>\n        </tr>\n        </tbody>\n    </table>\n</div>"
+            }
+        ],
+        "items": [
+            {
+                "name": "item30",
+                "content": "",
+                "alias": "",
+                "type": "text"
+            },
+            {
+                "name": "item2",
+                "content": "@{orderNo}",
+                "alias": "单据编号",
+                "type": "barcode",
+                "code": "orderNo",
+                "dataType": "string"
+            },
+            {
+                "name": "item1",
+                "content": "发货单",
+                "alias": "发货单",
+                "type": "text"
+            },
+            {
+                "name": "item3",
+                "content": "单据编号:",
+                "alias": "单据编号:",
+                "type": "text"
+            },
+            {
+                "name": "item4",
+                "content": "@{orderNo}",
+                "alias": "单据编号",
+                "type": "text",
+                "code": "orderNo",
+                "dataType": "string"
+            },
+            {
+                "name": "item5",
+                "content": "发货仓库:",
+                "alias": "发货仓库:",
+                "type": "text"
+            },
+            {
+                "name": "item6",
+                "content": "@{whName}",
+                "alias": "发货仓库",
+                "type": "text",
+                "code": "whName",
+                "dataType": "string"
+            },
+            {
+                "name": "item7",
+                "content": "买家昵称:",
+                "alias": "买家昵称:",
+                "type": "text"
+            },
+            {
+                "name": "item8",
+                "content": "@{vipName}",
+                "alias": "买家昵称",
+                "type": "text",
+                "code": "vipName",
+                "dataType": "string"
+            },
+            {
+                "name": "item9",
+                "content": "快递公司:",
+                "alias": "快递公司:",
+                "type": "text"
+            },
+            {
+                "name": "item10",
+                "content": "@{expressName}",
+                "alias": "快递公司",
+                "type": "text",
+                "code": "expressName",
+                "dataType": "string"
+            },
+            {
+                "name": "item11",
+                "content": "",
+                "alias": "",
+                "type": "text"
+            },
+            {
+                "name": "item12",
+                "content": "",
+                "alias": "",
+                "type": "text"
+            },
+            {
+                "name": "item13",
+                "content": "",
+                "alias": "",
+                "type": "text"
+            },
+            {
+                "name": "item14",
+                "content": "",
+                "alias": "",
+                "type": "text"
+            },
+            {
+                "name": "item15",
+                "content": "买家地址:",
+                "alias": "买家地址:",
+                "type": "text"
+            },
+            {
+                "name": "item16",
+                "content": "@{recAddrFull}",
+                "alias": "收货地址",
+                "type": "text",
+                "code": "recAddrFull",
+                "dataType": "string"
+            },
+            {
+                "name": "item17",
+                "content": "",
+                "alias": "",
+                "type": "text"
+            },
+            {
+                "name": "item18",
+                "content": "@{listGoods}",
+                "alias": "商品信息",
+                "type": "table",
+                "css": {
+                    "border": "1px solid rgb(140, 140, 140)",
+                    "border-collapse": "collapse",
+                    "border-spacing": "0px",
+                    "margin": "0px"
+                },
+                "code": "listGoods",
+                "dataType": "list",
+                "colModel": [
+                    {
+                        "index": "goodsName",
+                        "name": "goodsName",
+                        "label": "商品名称",
+                        "sortno": 0,
+                        "defVal": "-",
+                        "thCss": {
+                            "text-align": "center",
+                            "font-weight": "bold",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "tdCss": {
+                            "text-align": "center",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "hidden": false,
+                        "width": ""
+                    },
+                    {
+                        "index": "goodsCode",
+                        "name": "goodsCode",
+                        "label": "商品编码",
+                        "sortno": 1,
+                        "defVal": "-",
+                        "thCss": {
+                            "text-align": "center",
+                            "font-weight": "bold",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "tdCss": {
+                            "text-align": "center",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "hidden": true,
+                        "width": ""
+                    },
+                    {
+                        "index": "skuCode",
+                        "name": "skuCode",
+                        "label": "商品规格编码",
+                        "sortno": 2,
+                        "defVal": "-",
+                        "thCss": {
+                            "text-align": "center",
+                            "font-weight": "bold",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "tdCss": {
+                            "text-align": "center",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "hidden": false,
+                        "width": ""
+                    },
+                    {
+                        "index": "barcode",
+                        "name": "barcode",
+                        "label": "商品条码",
+                        "sortno": 3,
+                        "defVal": "-",
+                        "thCss": {
+                            "text-align": "center",
+                            "font-weight": "bold",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "tdCss": {
+                            "text-align": "center",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "hidden": false,
+                        "width": ""
+                    },
+                    {
+                        "index": "channelSpec",
+                        "name": "channelSpec",
+                        "label": "平台规格",
+                        "sortno": 4,
+                        "defVal": "-",
+                        "thCss": {
+                            "text-align": "center",
+                            "font-weight": "bold",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "tdCss": {
+                            "text-align": "center",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "hidden": true,
+                        "width": ""
+                    },
+                    {
+                        "index": "specDesc",
+                        "name": "specDesc",
+                        "label": "商品规格",
+                        "sortno": 5,
+                        "defVal": "-",
+                        "thCss": {
+                            "text-align": "center",
+                            "font-weight": "bold",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "tdCss": {
+                            "text-align": "center",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "hidden": false,
+                        "width": ""
+                    },
+                    {
+                        "index": "purchaseAmount",
+                        "name": "purchaseAmount",
+                        "label": "数量",
+                        "sortno": 6,
+                        "defVal": "-",
+                        "thCss": {
+                            "text-align": "center",
+                            "font-weight": "bold",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "tdCss": {
+                            "text-align": "center",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "hidden": false,
+                        "width": ""
+                    },
+                    {
+                        "index": "subtotal",
+                        "name": "subtotal",
+                        "label": "金额",
+                        "sortno": 7,
+                        "defVal": "-",
+                        "thCss": {
+                            "text-align": "center",
+                            "font-weight": "bold",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "tdCss": {
+                            "text-align": "center",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "hidden": false,
+                        "width": ""
+                    },
+                    {
+                        "index": "wbSpec",
+                        "name": "wbSpec",
+                        "label": "库存描述",
+                        "sortno": 8,
+                        "defVal": "-",
+                        "thCss": {
+                            "text-align": "center",
+                            "font-weight": "bold",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "tdCss": {
+                            "text-align": "center",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "hidden": true,
+                        "width": ""
+                    },
+                    {
+                        "index": "goodsType",
+                        "name": "goodsType",
+                        "label": "商品类型Code",
+                        "sortno": 9,
+                        "defVal": "-",
+                        "thCss": {
+                            "text-align": "center",
+                            "font-weight": "bold",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "tdCss": {
+                            "text-align": "center",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "hidden": true,
+                        "width": ""
+                    },
+                    {
+                        "index": "goodsTypeDesc",
+                        "name": "goodsTypeDesc",
+                        "label": "商品类型",
+                        "sortno": 10,
+                        "defVal": "-",
+                        "thCss": {
+                            "text-align": "center",
+                            "font-weight": "bold",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "tdCss": {
+                            "text-align": "center",
+                            "border": "1px solid #8c8c8c"
+                        },
+                        "hidden": true,
+                        "width": ""
+                    }
+                ]
+            },
+            {
+                "name": "item19",
+                "content": "",
+                "alias": "",
+                "type": "text"
+            },
+            {
+                "name": "item20",
+                "content": "店铺：",
+                "alias": "店铺：",
+                "type": "text"
+            },
+            {
+                "name": "item21",
+                "content": "@{shopName}",
+                "alias": "店铺",
+                "type": "text",
+                "code": "shopName",
+                "dataType": "string"
+            },
+            {
+                "name": "item22",
+                "content": "快递费：",
+                "alias": "快递费：",
+                "type": "text"
+            },
+            {
+                "name": "item23",
+                "content": "@{exprFee}",
+                "alias": "快递费",
+                "type": "text",
+                "code": "exprFee",
+                "dataType": "string"
+            },
+            {
+                "name": "item24",
+                "content": "商家备注：",
+                "alias": "商家备注：",
+                "type": "text"
+            },
+            {
+                "name": "item25",
+                "content": "@{sellerMessage}",
+                "alias": "卖家留言",
+                "type": "text",
+                "code": "sellerMessage",
+                "dataType": "string"
+            },
+            {
+                "name": "item26",
+                "content": "合计：",
+                "alias": "合计：",
+                "type": "text"
+            },
+            {
+                "name": "item27",
+                "content": "@{totalMoney}",
+                "alias": "合计",
+                "type": "text",
+                "code": "totalMoney",
+                "dataType": "money",
+                "pattern": "#000000"
+            }
+        ],
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "pageWidth": 2100,
+        "pageHeight": 2970
+    }];
+    $(document).ready(function () {
+        var $printer = $('a[lamp="lampPrinter"]').lampPrinter(tpls);
+        $printer.on('click',function (e) {
+            $(this).print(data);
+        });
+        $('#mpp').lampPrinter(tpls,{'nullConvert':'NaN'});
+        $('#mpp').on('click',function (e) {
+            $(this).printMulti(datas);
+        });
+    });
+</script>
+
+</html>
